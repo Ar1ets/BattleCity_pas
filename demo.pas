@@ -517,7 +517,11 @@ end;
 procedure mDown(x, y, mb: integer);
 begin
   if paused and (mb = 1) then begin
-    if pI[0].PtInside(x, y) then window.Close;
+    if pI[0].PtInside(x, y) then begin
+      println('Goodbye!');
+      sleep(1000);
+      window.Close;
+    end;
     if pI[1].PtInside(x, y) then openPause;
     if pI[2].PtInside(x, y) then
       if (ent.GetLength(0) + 1 <= entlimit) then begin
